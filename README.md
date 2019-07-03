@@ -1,2 +1,6 @@
 # test-automation-ts-valorsoft
-Test Automation for Web-applications with TypeScript
+Test Automaeqeqwetion for Web-applications witweweqeh TypeScript
+
+
+
+Project created by Serhii Kuriatnyk
