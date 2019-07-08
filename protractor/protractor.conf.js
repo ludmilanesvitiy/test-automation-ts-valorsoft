@@ -5,13 +5,13 @@ const JR = require('protractor-jasmine2-html-reporter');
 const testResultsDir = 'results';
 
 exports.config = {
-    baseUrl: 'http://google.com',
+    baseUrl: 'https://ng-book.com',
     directConnect: true,
 
     capabilities: {
         browserName: 'chrome',
         shardTestFiles: true,
-        maxInstances: 4,
+        maxInstances: 1,
         chromeOptions: {
             args: [ '--window-size=1920x1080'], // 'headless',
             prefs: {
@@ -27,7 +27,6 @@ exports.config = {
     allScriptsTimeout: 60000,
 
     jasmineNodeOpts: {
-        showTiming: true,
         showColors: true,
         isVerbose: false,
         includeStackTrace: false,
@@ -44,6 +43,11 @@ exports.config = {
                 savePath: testResultsDir,
             })
         );
+
+        browser.driver
+            .manage()
+            .window()
+            .maximize();
 
         let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
