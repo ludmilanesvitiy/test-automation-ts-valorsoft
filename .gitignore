@@ -7,3 +7,6 @@
  #Cypress
 /cypress/videos/*
 /cypress/screenshots/*
+
+#Protractor
+/results
