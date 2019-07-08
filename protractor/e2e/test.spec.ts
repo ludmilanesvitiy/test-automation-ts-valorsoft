@@ -15,6 +15,7 @@ describe('Test', function () {
         await $$('input[name="q"]').sendKeys('11111111');
         await $$('input[name="q"]').clear();
         await $$('input[name="q"]').sendKeys('22222222');
+
         expect(true).toBe(true);
     });
     it('should test', async () => {
