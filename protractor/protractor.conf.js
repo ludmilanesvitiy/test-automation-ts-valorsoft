@@ -7,9 +7,9 @@ exports.config = {
     // seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['e2e/*.ts'],
     directConnect: true,
-    baseUrl : 'https://ng-book.com/',
+    baseUrl: 'https://ng-book.com/',
 
-    capabilities :
+    capabilities:
         {
             browserName: 'chrome',
             maxInstances: 1,
@@ -18,14 +18,16 @@ exports.config = {
             }
         },
 
-    onPrepare : function () {
-        require('ts-node').register({ project: path.join(__dirname, './e2e/tsconfig.json') });
+    onPrepare: function () {
+        require('ts-node').register({project: path.join(__dirname, './e2e/tsconfig.json')});
 
         jasmine.getEnv().addReporter(
             new Jasmine_Reporter({
                 takeScreenshotsOnlyOnFailures: true,
-                savePath: 'results/'
-
+                savePath: 'results/',
+                fileNameSuffix: new Date().getTime(),
+                fileName: 'protractor-report',
+                cleanDestination: false,
             })
         );
 
@@ -52,6 +54,7 @@ exports.config = {
         isVerbose: false,
         includeStackTrace: false,
         defaultTimeoutInterval: 60000,
-        print: function() {}
+        print: function () {
+        }
     },
 }

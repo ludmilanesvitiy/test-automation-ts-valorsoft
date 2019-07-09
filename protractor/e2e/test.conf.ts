@@ -1,6 +1,6 @@
-import {$,$$, browser, by, element} from "protractor";
+import {$, $$, browser, by, element} from "protractor";
 
-describe('Protractor Demo App', function() {
+describe('Protractor Demo App', function () {
     it('should have a title', async () => {
         await browser.get('http://juliemr.github.io/protractor-demo/');
         // element.all('').get();
@@ -17,13 +17,3 @@ describe('Protractor Demo App', function() {
     });
 });
 
-// describe('Test', function () {
-//     beforeAll(async () => {
-//         await browser.waitForAngularEnabled(false);
-//     });
-//
-//     it('should be true', async () => {
-//
-//     });
-//
-// });
