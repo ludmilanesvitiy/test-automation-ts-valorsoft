@@ -1,5 +1,5 @@
-import {$, browser, ElementFinder, ExpectedConditions} from "protractor";
-let timeout = 5000;
+import {browser, ElementFinder, ExpectedConditions, protractor} from "protractor";
+const defaultTimeout = 5000;
 
 export abstract class BaseComponent {
   abstract pageUrl: string;
@@ -12,7 +12,23 @@ export abstract class BaseComponent {
       return browser.getTitle();
     }
 
-    async waitForVisible(element: ElementFinder) {
-        await browser.wait(ExpectedConditions.visibilityOf(element), timeout);
+    getCurrentUrl() {
+        return browser.getCurrentUrl();
+    }
+
+    async waitForVisible(element: ElementFinder, timeout?: number) {
+        await browser.wait(ExpectedConditions.visibilityOf(element), timeout ? timeout : defaultTimeout);
+    }
+
+    async waitForInVisible(element: ElementFinder, timeout?: number) {
+        await browser.wait(ExpectedConditions.invisibilityOf(element), timeout ? timeout : defaultTimeout);
+    }
+
+    async pressEsc() {
+        await browser.actions().sendKeys(protractor.Key.ESCAPE).perform();
+    }
+
+    async switchToDefaultContent() {
+        await browser.switchTo().defaultContent();
     }
 }

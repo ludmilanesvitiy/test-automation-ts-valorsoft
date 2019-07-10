@@ -1,13 +1,13 @@
-import {$$, $, browser, ExpectedConditions, protractor} from "protractor";
+import {browser, ExpectedConditions, protractor} from "protractor";
 import {MainPo} from "../support/main.po";
 
-describe('tests for main page',async () => {
+describe('tests for main page', async () => {
     const mainPage = new MainPo();
     const headerLinks = ['blog.ng-book.com/', '#features', '#testimonials',
         '#community', '#packages', 'modern-ng1/', '/2/'];
     const prices = ['39', '79', '299'];
 
-    beforeEach(async ()=>{
+    beforeEach(async () => {
         await mainPage.navigateTo();
         // await browser.get('/');
     });
@@ -27,27 +27,40 @@ describe('tests for main page',async () => {
     });
 
     it('check jump to packages button', async () => {
-        await $('div.intro a').click();
-        expect(await browser.getCurrentUrl()).toContain('#packages');
+        //await $('div.intro a').click();
+        await mainPage.jumpToButton.click();
+        //expect(await browser.getCurrentUrl()).toContain('#packages');
+        expect(await mainPage.getCurrentUrl()).toContain('#packages');
         for (let price of prices) {
-            expect(await $$('.pricing-table h3').get(prices.indexOf(price)).getText()).toContain(price);
+            //expect(await $$('.pricing-table h3').get(prices.indexOf(price)).getText()).toContain(price);
+            expect(await mainPage.priceHeaders.get(prices.indexOf(price)).getText()).toContain(price);
         }
     });
 
-    it('check but popup', async () => {
-        await $('div.intro a').click();
-        for (let i = 0; i < await $$('div.getit a').count(); i++) {
-            await $$('div.getit a').get(i).click();
-            await browser.switchTo().frame($('iframe.gumroad-overlay-iframe').getWebElement());
+    it('check buy popup', async () => {
+        //await $('div.intro a').click();
+        await mainPage.jumpToButton.click();
+
+        for (let i = 0; i < await mainPage.getItButtons.count(); i++) {
+            await mainPage.getItButtons.get(i).click();
+            //await browser.switchTo().frame($('iframe.gumroad-overlay-iframe').getWebElement());
+            await browser.switchTo().frame(mainPage.getItIframe.getWebElement());
             // await browser.wait(ExpectedConditions.visibilityOf($('.payment-container [name="email"]')), 5000);
-            await mainPage.waitForVisible($('.payment-container [name="email"]'));
-            expect(await $('.payment-container [name="email"]').isDisplayed()).toBeTruthy();
-            expect(await $('.price').getText()).toContain(prices[i]);
-            await $('.changed_mind_button i').click();
-            expect(await $('.price').getText()).toContain(prices[i]);
-            await browser.actions().sendKeys(protractor.Key.ESCAPE).perform();
-            await browser.switchTo().defaultContent();
-            await browser.sleep(2000);
+            await mainPage.waitForVisible(mainPage.paymentContainerEmail, 10000);
+            //expect(await $('.payment-container [name="email"]').isDisplayed()).toBeTruthy();
+            expect(await mainPage.paymentContainerEmail.isDisplayed()).toBeTruthy();
+            //expect(await $('.price').getText()).toContain(prices[i]);
+            expect(await mainPage.getCurrentPrice()).toContain(prices[i]);
+            //await $('.changed_mind_button i').click();
+            await mainPage.closeButton.click();
+            //expect(await $('.price').getText()).toContain(prices[i]);
+            expect(await mainPage.getCurrentPrice()).toContain(prices[i]);
+            //await browser.actions().sendKeys(protractor.Key.ESCAPE).perform();
+            await mainPage.pressEsc();
+            //await browser.switchTo().defaultContent();
+            await mainPage.switchToDefaultContent();
+            //await browser.wait(ExpectedConditions.invisibilityOf(mainPage.getItIframe));
+            await mainPage.waitForInVisible(mainPage.getItIframe);
         }
     });
 });
