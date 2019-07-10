@@ -1,7 +1,6 @@
 'use strict';
 const path = require('path');
 const JR = require('protractor-jasmine2-html-reporter');
-
 const testResultsDir = 'results';
 
 exports.config = {
@@ -10,17 +9,16 @@ exports.config = {
 
     capabilities: {
         browserName: 'chrome',
-        shardTestFiles: true,
         maxInstances: 1,
         chromeOptions: {
-            args: [ '--window-size=1920x1080'], // 'headless',
+            args: [  '--window-size=1920x1080'], //'headless',
             prefs: {
                 'profile.managed_default_content_settings.notifications': 1
             }
         }
     },
 
-    specs: ['./e2e/*spec.ts'],
+    specs: ['./e2e/integration/*spec.ts'],
     exclude: [],
 
     framework: 'jasmine',
@@ -35,7 +33,8 @@ exports.config = {
     },
 
     onPrepare: function() {
-        require('ts-node').register({ project: path.join(__dirname, './e2e/tsconfig.json') });
+        require('ts-node').register({project: path.join(__dirname, './e2e/tsconfig.json')});
+        browser.waitForAngularEnabled(false);
 
         jasmine.getEnv().addReporter(
             new JR({

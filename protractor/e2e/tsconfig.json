@@ -15,8 +15,7 @@
       "node"
     ],
     "typeRoots": [
-      "../node_modules/@types",
-      "../node_modules/protractor"
+      "../node_modules/@types"
     ]
   },
   "includes": [
