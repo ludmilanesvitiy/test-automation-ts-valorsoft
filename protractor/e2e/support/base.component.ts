@@ -1,4 +1,6 @@
-import {$, browser, ElementFinder, ExpectedConditions} from "protractor";
+import {browser, ElementFinder, ExpectedConditions, Key} from "protractor";
+
+const timeout: number = 5000;
 
 export abstract class BaseComponent {
     abstract pageUrl: string;
@@ -12,6 +14,14 @@ export abstract class BaseComponent {
     }
 
     async waitForElementVisible(element: ElementFinder, duration?) {
-        await browser.wait(ExpectedConditions.visibilityOf(element), duration ? duration:5000);
+        await browser.wait(ExpectedConditions.visibilityOf(element), duration ? duration : timeout);
+    }
+
+    async pressEscapeBtn() {
+        await browser.actions().sendKeys(Key.ESCAPE).perform();
+    }
+
+    async switchToDefaultContent() {
+        await await browser.switchTo().defaultContent();
     }
 }
