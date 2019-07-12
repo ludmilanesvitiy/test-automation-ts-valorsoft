@@ -3,6 +3,9 @@
 
  # dependencies
 /node_modules
+/screenshots/*
+
+htmlReport.html
 
  #Cypress
 /cypress/videos/*
