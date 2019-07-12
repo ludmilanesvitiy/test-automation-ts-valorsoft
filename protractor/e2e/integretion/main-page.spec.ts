@@ -11,7 +11,7 @@ describe("tests for maian page", () => {
         await mainPage.navigateTo();
     });
 
-    xit('should contain title', async () => {
+    it('should contain title', async () => {
         expect(await mainPage.getTitle()).toContain(MainPo.title);
     });
 
@@ -21,7 +21,7 @@ describe("tests for maian page", () => {
         }
     });
 
-    xit('should scroll to plans blocks', async () => {
+    it('should scroll to plans blocks', async () => {
         await mainPage.jumpToPackagesBtn.click();
         expect(await browser.getCurrentUrl()).toContain('#packages');
         for (let price of PaymentPo.prices) {
@@ -29,7 +29,7 @@ describe("tests for maian page", () => {
         }
     });
 
-    xit('should open purchasing pop-up', async () => {
+    it('should open purchasing pop-up', async () => {
         await mainPage.jumpToPackagesBtn.click();
         for (let i = 0; i < await mainPage.getItBtns.count(); i++) {
             await mainPage.getItBtns.get(i).click();

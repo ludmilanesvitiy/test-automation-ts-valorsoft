@@ -8,7 +8,7 @@ exports.config = {
     // seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['e2e/*.ts', "e2e/integration/*.ts"],
     directConnect: true,
-    baseUrl: 'https://ng-book.com',
+    baseUrl: 'https://ng-book.com/',
 
     capabilities:
         {
