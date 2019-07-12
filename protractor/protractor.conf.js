@@ -7,7 +7,7 @@ exports.config = {
     baseUrl: 'https://ng-book.com',
     directConnect: true,
 
-    capabilities: {
+    multiCapabilities: [{
         browserName: 'chrome',
         maxInstances: 1,
         chromeOptions: {
@@ -16,7 +16,7 @@ exports.config = {
                 'profile.managed_default_content_settings.notifications': 1
             }
         }
-    },
+    }, {}],
 
     specs: ['./e2e/integration/*spec.ts'],
     exclude: [],

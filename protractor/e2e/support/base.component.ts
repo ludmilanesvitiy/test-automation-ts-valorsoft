@@ -31,4 +31,13 @@ export abstract class BaseComponent {
     async switchToDefaultContent() {
         await browser.switchTo().defaultContent();
     }
+
+    async sendKeys(element: ElementFinder, value: string) {
+      await element.clear();
+      await element.sendKeys(value);
+    }
+
+    async scrollToElement(element: ElementFinder) {
+      await browser.executeScript('arguments[0].scrollIntoView()', element.getWebElement());
+    }
 }
