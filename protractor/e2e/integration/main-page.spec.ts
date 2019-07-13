@@ -39,7 +39,7 @@ describe('tests for main page', ()=>{
             expect(await mainPage.getCurrentPrice()).toContain(prices[i]);
             await mainPage.pressEsc();
             await mainPage.switchToDefaultContent();
-            await mainPage.waitForVisible(mainPage.getItButtons.get(i));
+            await mainPage.waitForVisible(mainPage.getItButtons.get(i), 6000);
         }
     });
 });

@@ -35,4 +35,13 @@ export abstract class BaseComponent {
     async switchToiFrame(element: ElementFinder) {
         await browser.switchTo().frame(element.getWebElement());
     }
+
+    async sendKeys(element: ElementFinder, value: string) {
+        await element.clear();
+        await element.sendKeys(value);
+    }
+
+    async scrollToElement(element: ElementFinder) {
+        await browser.executeScript('arguments[0].scrollIntoView()', element.getWebElement());
+    }
 }

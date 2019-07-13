@@ -1,6 +1,5 @@
 import {$$, $, ElementArrayFinder, ElementFinder} from "protractor";
 import {BaseComponent} from "./base.component";
-import {MainPo} from "./main.po";
 
 export class PaymentPopupPo extends BaseComponent{
     pageUrl = 'https://ng-book.com';
