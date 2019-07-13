@@ -37,14 +37,12 @@ exports.config = {
         jasmine.getEnv().addReporter(
             new JR({
                 takeScreenshotsOnlyOnFailures: true,
+                screenshotsFolder: 'images',
                 savePath: 'results',
             })
         );
 
-        browser.driver
-            .manage()
-            .window()
-            .maximize();
+        browser.driver.manage().window().maximize();
 
         let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
