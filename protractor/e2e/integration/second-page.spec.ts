@@ -58,4 +58,22 @@ describe('tests for second page', ()=> {
         await secondPage.infoSubmitButton.click();
 
     });
+
+    it('check blog page', async ()=> {
+        const blogPo = await secondPage.openBlogPage();
+        expect( await blogPo.getCurrentUrl()).toContain('https://blog.ng-book.com/');
+        expect(await blogPo.headers.count()).toEqual(20);
+        expect(await blogPo.descriptions.count()).toEqual(20);
+        expect(await blogPo.links.count()).toEqual(20);
+        expect(await blogPo.firstPageLink.isDisplayed()).toBeTruthy();
+        expect(await blogPo.onePageLink.isDisplayed()).toBeTruthy();
+        expect(await blogPo.twoPageLink.isDisplayed()).toBeTruthy();
+        expect(await blogPo.nextPageLink.isDisplayed()).toBeTruthy();
+        expect(await blogPo.lastPageLink.isDisplayed()).toBeTruthy();
+        await blogPo.scrollToElement(blogPo.twoPageLink);
+        await blogPo.twoPageLink.click();
+        await blogPo.waitForVisible(blogPo.articles.get(0));
+        expect( await blogPo.getCurrentUrl()).toContain('https://blog.ng-book.com/page/2/');
+        expect(await blogPo.articles.get(0).isDisplayed()).toBeTruthy();
+    });
 });

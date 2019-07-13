@@ -1,18 +1,14 @@
 import {BaseComponent} from "./base.component";
 import {$, $$, ElementArrayFinder, ElementFinder} from "protractor";
-import {PaymentPopupPo} from "./payment.popup.po";
 import {GetChapterPopupPo} from "./get.chapter.popup.po";
+import {BlogPo} from "./blog.po";
 
 export class SecondPo extends BaseComponent {
     pageUrl: string='https://ng-book.com/2/';
 
     headerLinks: ElementArrayFinder = $$('.nav-links a');
+    blogLink: ElementArrayFinder = $$('a[href="http://blog.ng-book.com"]');
     downloadChapterButton: ElementFinder = $('.hero-cta');
-    firstNameInput: ElementFinder = $('.greensboro-field-name');
-    emailInput: ElementFinder = $('.greensboro-field-email');
-    submitButton: ElementFinder = $('.greensboro-field-submit');
-    closeButton: ElementFinder = $('.greensboro-CloseButton');
-    errorMessages: ElementArrayFinder = $$('.greensboro-error');
     stepsBlock: ElementArrayFinder = $$('div.step');
     secondPageLink: ElementFinder = $('.navbar-brand');
     bookSection: ElementFinder = $('.curriculum');
@@ -25,7 +21,15 @@ export class SecondPo extends BaseComponent {
 
     async openGetChapterPopup() {
         await this.downloadChapterButton.click();
-        await this.waitForVisible(this.firstNameInput);
+        const getChapterPopupPo = new GetChapterPopupPo();
+        await this.waitForVisible(getChapterPopupPo.firstNameInput);
         return new GetChapterPopupPo();
+    }
+
+    async openBlogPage() {
+        await this.blogLink.click();
+        const blogPo = new BlogPo();
+        await this.waitForVisible(blogPo.articles.get(0));
+        return new BlogPo();
     }
 }
