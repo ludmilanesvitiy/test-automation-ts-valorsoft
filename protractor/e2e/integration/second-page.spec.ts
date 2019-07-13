@@ -31,7 +31,7 @@ describe('tests for second page', async () => {
         expect(await secondPage.firstnameInput.isDisplayed()).toBeFalsy();
     });
 
-    fit('when user click on submit redirect to the pending page', async () => {
+    it('when user click on submit redirect to the pending page', async () => {
         await secondPage.downloadChapterButton.click();
         await secondPage.waitForVisible(secondPage.firstnameInput);
         expect(await secondPage.firstnameInput.isDisplayed()).toBeTruthy();
@@ -47,7 +47,7 @@ describe('tests for second page', async () => {
 
     });
 
-    fit('when user scroll', async () => {
+    it('when user scroll', async () => {
             await secondPage.scrollToElement(secondPage.bookSection);
             expect(await secondPage.bookContentSection.count()).toEqual(20);
             await secondPage.readTableContentButton.click();
@@ -61,13 +61,28 @@ describe('tests for second page', async () => {
             expect(await secondPage.infoSubmitButton.isDisplayed()).toBeTruthy();
             await secondPage.infoSubmitButton.click();
 
-
-
-
-
     });
 
 
+    fit('check the blog (homework)', async () => {
 
+        //await browser.get('https://ng-book.com/2/');
+
+        await secondPage.menuItemBlog.click();
+        expect(await browser.getCurrentUrl()).toContain('https://blog.ng-book.com/');
+        expect(await secondPage.header.count()).toEqual(20);
+        expect(await secondPage.description.count()).toEqual(20);
+        expect(await secondPage.link.count()).toEqual(20);
+        expect(await secondPage.linkFirstPage.isDisplayed()).toBeTruthy();
+        expect(await secondPage.linkOne.isDisplayed()).toBeTruthy();
+        expect(await secondPage.linkTwo.isDisplayed()).toBeTruthy();
+        expect(await secondPage.linkNext.isDisplayed()).toBeTruthy();
+        expect(await secondPage.linkLastPage.isDisplayed()).toBeTruthy();
+        await secondPage.linkTwo.click();
+        expect(await secondPage.getCurrentUrl()).toContain('/page/2/');
+        expect(await secondPage.blockPost.isDisplayed()).toBeTruthy();
+        expect(await secondPage.blockPost.get(0).getText());
+
+    });
 
 });
