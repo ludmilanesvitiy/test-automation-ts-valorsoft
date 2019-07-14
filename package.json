@@ -2,8 +2,8 @@
   "name": "test-automation-ts-valorsoft",
   "version": "1.0.0",
   "scripts": {
-    "pree2e": "node ./node_modules/protractor/bin/webdriver-manager update --versions.chrome 75.0.3770.90",
-    "e2e-tests": "protractor protractor.conf.js",
+    "pree2e-tests": "node ./node_modules/protractor/bin/webdriver-manager update --versions.chrome 75.0.3770.90",
+    "e2e-tests": "protractor ./protractor/protractor.conf.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:verify": "cypress verify",
