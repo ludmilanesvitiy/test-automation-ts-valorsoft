@@ -58,5 +58,13 @@ describe('Main page test suite', () => {
         await secondPage.infoSubmitButton.click();
     });
 
+    it('Check blog page',async () => {
+        await secondPage.blogButton.click();
+        expect(await secondPage.getCurrentUrl()).toContain(secondPage.blogLink);
+        expect(await secondPage.postsList.count()).toEqual(20);
+        expect(secondPage.isElementDisplayed(await secondPage.navigationBar)).toBeTruthy();
+        await secondPage.linkTosSecondPage.click();
+        expect(await secondPage.postsList.count()).toBeTruthy()
+    });
 
 });

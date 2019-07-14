@@ -3,6 +3,7 @@
 
  # dependencies
 /node_modules
+/protractor/results
 
  #Cypress
 /cypress/videos/*
