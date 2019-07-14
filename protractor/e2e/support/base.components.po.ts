@@ -6,11 +6,10 @@ export abstract class BaseComponentsPo{
 
     async navigateTo(){
         await  browser.get(this.pageUrl);
-
     }
+
     getTitle(){
         return browser.getTitle();
-
     }
 
     getCurrentUrl() {
@@ -31,5 +30,14 @@ export abstract class BaseComponentsPo{
 
     async waitForInVisible(element: ElementFinder, timeout?: number) {
         await browser.wait(ExpectedConditions.invisibilityOf(element), timeout ? timeout : timeout);
+    }
+
+    async sendKeys(element:ElementFinder, value: string){
+        await element.clear();
+        await element.sendKeys(value);
+    }
+
+    async scrollToElement(element:ElementFinder){
+        await  browser.executeScript('arguments[0].scrollIntoView', element.getWebElement());
     }
 }

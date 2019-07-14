@@ -46,7 +46,6 @@ describe("tests for main page", () => {
             await mainPage.pressEsc();
             await mainPage.switchToDefaultContent();
             await mainPage.waitForInVisible(mainPage.getItIframe);
-            //browser.sleep(10000)
         }
 
     });
