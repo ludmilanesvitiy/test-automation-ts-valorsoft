@@ -19,5 +19,16 @@ export class secondPo extends BaseComponent{
     infoCard: ElementFinder = $ ('.info-card.too-good.container--narrow');
     infoCardEmailInput: ElementFinder = $('.infusion-field-input-container');
     infoCardSubmit: ElementFinder = $('.input-group-btn [type="submit"]');
+    articles: ElementArrayFinder = $$('.post.post-group');
+    articleHeader: ElementArrayFinder = $$('h2 [rel="bookmark"]');
+    articleDesc: ElementArrayFinder = $$('.post-entry');
+    readMoreBtn: ElementArrayFinder = $$('.post-entry :nth-child(2)');
+
+    firstPage: ElementFinder = $('.paging-first');
+    pageOne: ElementFinder = $('.page-numbers.current');
+    pageTwo: ElementFinder = $('.page-numbers [href$="/2/"]');
+    nextPage: ElementFinder = $('.paging-next');
+    lastPage: ElementFinder = $('.paging-last');
+
 
 }

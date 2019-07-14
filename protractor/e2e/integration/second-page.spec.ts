@@ -63,4 +63,21 @@ describe('Second page tests', () => {
        expect(await SP.infoCardSubmit.isDisplayed()).toBeTruthy();
        await SP.infoCardSubmit.click();
     });
+
+    it('HOME WORK 2 TEST', async () => {
+        await SP.headerButtons.get(2).click();
+        expect(await SP.getCurrentUrl()).toContain("//blog.ng-book.com/");
+        expect(await SP.articles.count()).toEqual(20);
+        expect(await SP.articleHeader.count()).toEqual(20);
+        expect(await SP.articleDesc.count()).toEqual(20);
+        expect(await SP.readMoreBtn.count()).toEqual(20);
+        expect(await SP.firstPage.isDisplayed()).toBeTruthy();
+        expect(await SP.pageOne.isDisplayed()).toBeTruthy();
+        expect(await SP.pageTwo.isDisplayed()).toBeTruthy();
+        expect(await SP.nextPage.isDisplayed()).toBeTruthy();
+        expect(await SP.lastPage.isDisplayed()).toBeTruthy();
+        await SP.pageTwo.click();
+        expect(await SP.getCurrentUrl()).toContain("/page/2/");
+        expect(await SP.articles.count()).not.toEqual(0);
+    });
 });

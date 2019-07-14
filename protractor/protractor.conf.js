@@ -38,7 +38,7 @@ exports.config = {
             new JR({
                 takeScreenshotsOnlyOnFailures: true,
                 screenshotsFolder: 'images',
-                savePath: 'results',
+                savePath: 'protractor/results',
             })
         );
 
