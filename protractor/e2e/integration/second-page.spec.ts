@@ -50,18 +50,18 @@ describe('Second page tests', () => {
     });
 
     it('Book content ', async () => {
-       await SP.scrollToElement(SP.bookContentBlock);
-       expect(await SP.tableElements.count()).toEqual(20);
-       await SP.readFullBtn.click();
-       const windows = await browser.getAllWindowHandles();
-       await browser.switchTo().window(windows[1]);
-       await SP.waitForVisible(SP.pdfContent);
-       expect(await SP.getCurrentUrl()).toContain("ng-book-2-table-of-contents.pdf");
-       await browser.switchTo().window(windows[0]);
-       await SP.scrollToElement(SP.infoCard);
-       expect(await SP.infoCardEmailInput.isDisplayed()).toBeTruthy();
-       expect(await SP.infoCardSubmit.isDisplayed()).toBeTruthy();
-       await SP.infoCardSubmit.click();
+        await SP.scrollToElement(SP.bookContentBlock);
+        expect(await SP.tableElements.count()).toEqual(20);
+        await SP.readFullBtn.click();
+        const windows = await browser.getAllWindowHandles();
+        await browser.switchTo().window(windows[1]);
+        await SP.waitForVisible(SP.pdfContent);
+        expect(await SP.getCurrentUrl()).toContain("ng-book-2-table-of-contents.pdf");
+        await browser.switchTo().window(windows[0]);
+        await SP.scrollToElement(SP.infoCard);
+        expect(await SP.infoCardEmailInput.isDisplayed()).toBeTruthy();
+        expect(await SP.infoCardSubmit.isDisplayed()).toBeTruthy();
+        await SP.infoCardSubmit.click();
     });
 
     it('HOME WORK 2 TEST', async () => {

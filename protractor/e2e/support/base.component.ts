@@ -1,14 +1,15 @@
 import {$, browser, ElementFinder, ExpectedConditions, protractor} from "protractor";
+
 let defaultTimeout = 6000;
 
 export abstract class BaseComponent {
     abstract pageUrl: string;
 
-    async navigateTo(){
+    async navigateTo() {
         await browser.get(this.pageUrl);
     }
 
-    getTitle(){
+    getTitle() {
         return browser.getTitle();
     }
 
@@ -32,11 +33,12 @@ export abstract class BaseComponent {
         await browser.switchTo().defaultContent();
     }
 
-    async sendKeysWithClear(element: ElementFinder, value: string){
+    async sendKeysWithClear(element: ElementFinder, value: string) {
         await element.clear();
         await element.sendKeys(value);
-}
-    async scrollToElement(element: ElementFinder){
+    }
+
+    async scrollToElement(element: ElementFinder) {
         await browser.executeScript('arguments[0].scrollIntoView()', element.getWebElement());
     }
 }
