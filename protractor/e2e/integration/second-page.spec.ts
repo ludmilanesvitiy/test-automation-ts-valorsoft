@@ -1,9 +1,9 @@
 import {browser} from "protractor";
-import {SecondPo} from "../support/second.po";
+import {SecondPage} from "../support/secondPage";
 
 describe('tests for second page', () => {
 
-    const secondPage = new SecondPo();
+    const secondPage = new SecondPage();
 
     const headerLinks = ['[href="#contents"]', '[href="#testimonials"]'];
 

@@ -1,7 +1,7 @@
 import {$, $$, ElementArrayFinder, ElementFinder} from "protractor";
 import {BaseComponent} from "./base.component";
 
-export class SecondPo extends BaseComponent{
+export class SecondPage extends BaseComponent{
     pageUrl: string =  '/2';
 
     headerLinks: ElementArrayFinder = $$('.nav-links');
@@ -20,5 +20,11 @@ export class SecondPo extends BaseComponent{
     toGoodInfoSection: ElementFinder = $('.too-good');
     infoSectionEmail: ElementFinder = $('#inf_field_Email');
     infoSectionButton: ElementFinder = $('.input-group-btn');
+
+
+    blogHeaderLink: ElementFinder = $('[href*="blog"]');
+    postSection: ElementFinder = $('.section.posts-section');
+
+
 
 }
