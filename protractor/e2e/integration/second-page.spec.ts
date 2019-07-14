@@ -6,6 +6,7 @@ describe('tests for second page', ()=> {
    const secondPage = new SecondPo()
     const headerLinks = ['#contents', '#testimonials', 'http://blog.ng-book.com',
         '#get-it-now', '/modern-ng1/', '/'];
+   const bottomPages = ['First Page', '1','2', 'Next','Last Page']
 
     beforeEach(async ()=>{
         await secondPage.navigateTo();
@@ -69,6 +70,5 @@ describe('tests for second page', ()=> {
         await secondPage.infoSubmitButton.click();
 
 
-
-        });
+    });
 });

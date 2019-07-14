@@ -19,4 +19,6 @@ export class SecondPo extends BaseComponents{
     infoCardSection: ElementFinder = $('.info-card.too-good');
     infoEmailInput: ElementFinder = $('.infusion-field-input-container');
     infoSubmitButton: ElementFinder = $('.input-group-btn [type="submit"]');
+
+
 }
