@@ -10,7 +10,7 @@ describe("tests for blog page", () => {
         await secondPage.headerMenuBlog.click();
     });
 
-    it("when user click on blog redirect to the pending page", async () => {
+    it("check blog articles and pagination", async () => {
         const expectedArticlesNumber = 20;
         expect(await blogPage.getCurrentUrl()).toContain('blog.ng-book.com');
         expect(await blogPage.postsSection.isDisplayed()).toBeTruthy();

@@ -35,7 +35,6 @@ describe("tests for main page", () => {
     it("check buy popup", async () => {
         await mainPage.jumpToButton.click();
         for (let i = 0; i < await mainPage.getItButtons.count(); i++) {
-
             await mainPage.getItButtons.get(i).click();
             await browser.switchTo().frame(mainPage.getItIframe.getWebElement());
             await mainPage.waitForVisible(mainPage.paymentContainerEmail, 10000);
@@ -47,6 +46,5 @@ describe("tests for main page", () => {
             await mainPage.switchToDefaultContent();
             await mainPage.waitForInVisible(mainPage.getItIframe);
         }
-
     });
 });

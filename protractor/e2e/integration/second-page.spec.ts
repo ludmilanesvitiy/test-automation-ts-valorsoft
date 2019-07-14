@@ -43,7 +43,6 @@ describe("tests for second page", () => {
         await secondPage.secondPageLink.click();
         await secondPage.waitForVisible(secondPage.downloadChapter);
         expect(await secondPage.getCurrentUrl()).toContain("/2");
-
     });
 
     it("when user click on submit redirect to the pending page", async () => {
