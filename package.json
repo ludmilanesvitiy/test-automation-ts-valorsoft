@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "pree2e": "node ./node_modules/protractor/bin/webdriver-manager update --versions.chrome 75.0.3770.90",
-    "e2e-tests": "protractor protractor.conf.js",
+    "e2e-tests": " protractor ./protractor/protractor.conf.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:verify": "cypress verify",
@@ -15,11 +15,15 @@
     "cypress": "3.3.1",
     "jasmine": "3.4.0",
     "jasmine-spec-reporter": "4.2.1",
-    "protractor": "6.0.0",
+    "protractor": "^6.0.0",
     "protractor-jasmine2-html-reporter": "0.0.7",
     "ts-loader": "6.0.4",
     "ts-node": "5.0.1",
     "typescript": "3.5.2",
     "webpack": "4.35.0"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/mocha": "^5.2.7"
   }
 }
