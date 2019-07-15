@@ -19,4 +19,17 @@ export class SecondPo extends BaseComponent{
     infoCardSection: ElementFinder = $('.info-card.too-good');
     infoEmailInput: ElementFinder = $('.infusion-field-input-container');
     infoSubmitButton: ElementFinder = $('.input-group-btn [type="submit"]');
+
+    blogHeaderButton: ElementFinder = $('ul.nav-links a:nth-child(3)');
+    articles: ElementArrayFinder = $$('.post.post-group');
+    articleHeader: ElementArrayFinder = $$('.post.post-group h2');
+    articleDescription: ElementArrayFinder = $$('p:first-child');
+    articleLink: ElementArrayFinder = $$('.post-entry .btn-more');
+    footer: ElementFinder = $('div.paging');
+    firstPage: ElementFinder = $('.paging-first');
+    currentPage: ElementFinder = $('.page-numbers.current');
+    secondPage: ElementFinder = $('.page-numbers [href$="page/2/"]');
+    nextPage: ElementFinder = $('.paging-next');
+    lastPage: ElementFinder = $('.paging-last');
+
 }

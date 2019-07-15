@@ -45,7 +45,7 @@ describe('tests for second page', ()=> {
         expect(await secondPage.getCurrentUrl()).toContain('2');
     });
 
-    fit('when user click on submit redirect to the pending page',async () => {
+    it('check book content',async () => {
         await secondPage.scrollToElement(secondPage.bookSection);
         expect(await secondPage.bookContentSection.count()).toEqual(20);
         await secondPage.readTableContentButton.click();
@@ -59,4 +59,24 @@ describe('tests for second page', ()=> {
         expect(await secondPage.infoSubmitButton.isDisplayed()).toBeTruthy();
         await secondPage.infoSubmitButton.click();
     });
+
+
+    fit('Homework 2: check amount of articles in the Blog', async () => {
+        await secondPage.blogHeaderButton.click();
+        expect (await secondPage.getCurrentUrl()).toContain('/blog.ng-book.com/');
+        expect (await secondPage.articles.count()).toEqual(20);
+        expect (await secondPage.articleHeader.count()).toEqual(20);
+        expect (await secondPage.articleDescription.count()).toEqual(20);
+        expect (await secondPage.articleLink.count()).toEqual(20);
+        await secondPage.scrollToElement(secondPage.footer);
+        expect (await secondPage.firstPage.isPresent()).toBeTruthy();
+        expect (await secondPage.currentPage.isPresent()).toBeTruthy();
+        expect (await secondPage.secondPage.isPresent()).toBeTruthy();
+        expect (await secondPage.nextPage.isPresent()).toBeTruthy();
+        expect (await secondPage.lastPage.isPresent()).toBeTruthy();
+        await secondPage.secondPage.click();
+        expect (await secondPage.getCurrentUrl()).toContain('/page/2');
+        expect (await secondPage.articles.count()).toBeGreaterThan(0);
+    })
+
 });
