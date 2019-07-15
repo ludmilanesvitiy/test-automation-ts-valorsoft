@@ -7,9 +7,9 @@ describe('test for second page', () => {
     const secondPage = new SecondPo();
     const pendingPage = new PendingPo();
     const blogPage = new BlogPo();
-
     const headerLinks = ['#contents', '#testimonials', 'http://blog.ng-book.com',
         '#get-it-now', '/modern-ng1/', '/'];
+
     beforeEach(async () => {
         await secondPage.navigateTo();
     });
@@ -63,7 +63,7 @@ describe('test for second page', () => {
         await secondPage.infoSubmitBtn.click();
     });
 
-    fit('should open page blog pages with articles', async () => {
+    it('should open page blog pages with articles', async () => {
         await secondPage.waitForElementVisible(secondPage.blogHeaderLink);
         await secondPage.blogHeaderLink.click();
         await blogPage.waitForElementVisible(blogPage.postClass.first());
