@@ -11,6 +11,4 @@ export class MainPo extends BaseComponent {
     jumpToPackagesBtn: ElementFinder = $('div.intro a');
     getItBtns: ElementArrayFinder = $$('div.getit a');
     packagesPrices: ElementArrayFinder = $$('.pricing-table h3');
-
-
 }

@@ -62,17 +62,4 @@ describe('test for second page', () => {
         await secondPage.waitForElementVisible(secondPage.infoEmailInpt);
         await secondPage.infoSubmitBtn.click();
     });
-
-    it('should open page blog pages with articles', async () => {
-        await secondPage.waitForElementVisible(secondPage.blogHeaderLink);
-        await secondPage.blogHeaderLink.click();
-        await blogPage.waitForElementVisible(blogPage.postClass.first());
-        expect(await blogPage.getCurrentUrl()).toContain(blogPage.pageUrl);
-        expect(await blogPage.postClass.count()).toEqual(20);
-        await blogPage.scrollToElement(blogPage.paginationBlock);
-        await blogPage.secondBlogPageLink.click();
-        await secondPage.waitForElementVisible(blogPage.postClass.first());
-        expect(await blogPage.getCurrentUrl()).toContain('page/2');
-        expect(await blogPage.postClass.count()).toBeGreaterThan(1);
-    });
 });

@@ -17,5 +17,4 @@ export class SecondPo extends BaseComponent {
     infoEmailInpt: ElementFinder = $('#inf_field_Email');
     infoSubmitBtn: ElementFinder = $('.too-good [type=\'submit\']');
     blogHeaderLink: ElementFinder = $('[href="http://blog.ng-book.com"]');
-
 }
