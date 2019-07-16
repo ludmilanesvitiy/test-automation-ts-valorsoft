@@ -10,6 +10,5 @@ export class BlogPo extends BaseComponent {
     postHeaders: ElementArrayFinder = $$(this.postClass + ' h2');
     postEntries: ElementArrayFinder = $$(this.postClass + ' .post-entry');
     postReadMoreBtns: ElementArrayFinder = $$(this.postClass + ' .btn-more');
-    paginationBlock: ElementFinder = $('.paging')
     secondBlogPageLink: ElementFinder = $('.page-numbers [href$="page/2/"]');
 }

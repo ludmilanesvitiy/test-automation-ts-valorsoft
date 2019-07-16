@@ -1,9 +1,12 @@
 import {SecondPo} from "../support/second.po";
 import {BlogPo} from "../support/blog.po";
+import {PaginatorPe} from "../support/paginator.pe";
 
 describe('Blog page should have content', () => {
     const secondPage = new SecondPo();
     const blogPage = new BlogPo();
+    const paginationElement = new PaginatorPe();
+    const numberOfArticles: number = 20;
 
     it('user should be able to navigate from main page to blog', async () => {
         await secondPage.navigateTo();
@@ -16,7 +19,7 @@ describe('Blog page should have content', () => {
     it('should see all 20 posts on first blog page', async () => {
         await blogPage.navigateTo();
         await blogPage.waitForElementVisible(blogPage.posts.first());
-        expect(await blogPage.posts.count()).toBe(20);
+        expect(await blogPage.posts.count()).toBe(numberOfArticles);
     });
 
     it('Posts should not have empty content', async () => {
@@ -36,16 +39,20 @@ describe('Blog page should have content', () => {
     it('pagination should be present', async () => {
         await blogPage.navigateTo();
         await blogPage.waitForElementVisible(blogPage.posts.first());
-        await blogPage.scrollToElement(blogPage.paginationBlock);
-        expect(await blogPage.paginationBlock.isPresent()).toBeTruthy();
+        await blogPage.scrollToElement(paginationElement.paginationBlock);
+        expect(await paginationElement.paginationBlock.isPresent()).toBeTruthy();
+        expect(await paginationElement.firstBtn.isDisplayed()).toBeTruthy();
+        expect(await paginationElement.nextBtn.isDisplayed()).toBeTruthy();
+        expect(await paginationElement.lastBtn.isDisplayed()).toBeTruthy();
+        expect(await paginationElement.pageNumber.count()).toBe(2);
     });
 
     it('second blog page should contain at least one post', async () => {
         await blogPage.navigateTo()
-        await blogPage.scrollToElement(blogPage.paginationBlock);
+        await blogPage.scrollToElement(paginationElement.paginationBlock);
         await blogPage.secondBlogPageLink.click();
         await secondPage.waitForElementVisible(blogPage.posts.first());
         expect(await blogPage.getCurrentUrl()).toContain('page/2');
-        expect(await blogPage.posts.count()).toBeGreaterThan(1);
+        expect(await blogPage.posts.count()).toBeGreaterThan(0);
     });
 });
