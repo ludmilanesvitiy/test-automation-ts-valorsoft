@@ -1,7 +1,7 @@
 import {$, $$, ElementArrayFinder, ElementFinder} from "protractor";
-import {BaseComponent} from "./base.component";
+import {BaseComponentsPo} from "./base.component";
 
-export class MainPo extends BaseComponent{
+export class MainPo extends BaseComponentsPo{
     pageUrl = '/';
 
     headerRoutes: ElementArrayFinder = $$('ul.nav a');

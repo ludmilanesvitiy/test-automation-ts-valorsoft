@@ -2,6 +2,8 @@
 'use strict';
 const path = require('path');
 const JR = require('protractor-jasmine2-html-reporter');
+const testResultsDir = 'results';
+
 exports.config = {
     framework: 'jasmine',
     baseUrl: 'https://ng-book.com',
@@ -12,14 +14,14 @@ exports.config = {
         require('ts-node').register({ project: path.join(__dirname, './e2e/tsconfig.json') });
         browser.waitForAngularEnabled(false);
 
-/*
+
         jasmine.getEnv().addReporter(
             new JR({
                 takeScreenshotsOnlyOnFailures: true,
-                savePath: testResultsDir,
+                savePath: 'protractor/results'
             })
         );
-*/
+
         browser.driver
             .manage()
             .window()
@@ -50,6 +52,7 @@ exports.config = {
 
     specs: ['./e2e/integration/*spec.ts'],
     exclude: [],
+
 
     allScriptsTimeout: 60000,
 

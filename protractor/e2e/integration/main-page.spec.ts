@@ -37,7 +37,7 @@ describe('test for main page', ()=>{
         }
     })
 
-    it('check but popup', async ()=> {
+    it('check buy popup', async ()=> {
         //await $('div.intro a').click();
         await mainPage.jumpToButton.click();
 
@@ -46,7 +46,7 @@ describe('test for main page', ()=>{
             //await browser.switchTo().frame($('iframe.gumroad-overlay-iframe').getWebElement());
             await browser.switchTo().frame(mainPage.getItIframe.getWebElement());
             // await browser.wait(ExpectedConditions.visibilityOf($('.payment-container [name="email"]')), 5000);
-            await mainPage.waitForVisible(mainPage.paymentContainerEmail, 10000);
+            await mainPage.waitForElementVisible(mainPage.paymentContainerEmail, 10000);
             //expect(await $('.payment-container [name="email"]').isDisplayed()).toBeTruthy();
             expect(await mainPage.paymentContainerEmail.isDisplayed()).toBeTruthy();
             //expect(await $('.price').getText()).toContain(prices[i]);
