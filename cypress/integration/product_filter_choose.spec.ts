@@ -23,7 +23,7 @@ describe('Product filtering and adding to wishlist', () => {
         searchDetailsPage.isElemContainText(searchDetailsPage.sortDropdown, defaultFilter);
 
         searchDetailsPage.typeIntoElement(searchDetailsPage.searchInput, productForSearch + " {enter}");
-        searchDetailsPage.isElemContainText(searchDetailsPage.afterSearchBreadcumb, departmentName)
-        searchDetailsPage.isElemContainText(searchDetailsPage.afterSearchBreadcumb, productForSearch)
+        searchDetailsPage.isElemContainText(searchDetailsPage.afterSearchBreadcumb, departmentName);
+        searchDetailsPage.isElemContainText(searchDetailsPage.afterSearchBreadcumb, productForSearch);
     });
 });

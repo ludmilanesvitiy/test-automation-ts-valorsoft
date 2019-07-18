@@ -1,7 +1,10 @@
 /// <reference types="Cypress" />
-
 export abstract class BaseComponent {
     abstract pageUrl: string;
+
+    visitPage() {
+        cy.visit(this.pageUrl);
+    }
 
     isElemContainText(selector: string, text: string) {
         cy.get(selector).should('to.contain', text);
@@ -22,5 +25,9 @@ export abstract class BaseComponent {
 
     typeIntoElement(elementSelector: string, textToType: string) {
         cy.get(elementSelector).type(textToType);
+    }
+
+    isCurrentUrlContain(url: string) {
+        cy.url().should('to.contain', url)
     }
 }
