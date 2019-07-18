@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://www.amazon.com/",
+  "video": false,
+  "defaultCommandTimeout": 20000,
+  "viewportWidth": 1440,
+  "viewportHeight": 900
+}
