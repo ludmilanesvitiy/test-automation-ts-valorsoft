@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://www.amazon.com/",
+  "video": false,
+  "defaultCommandTimeout": 12000,
+  "pageLoadTimeout": 12000
+}
