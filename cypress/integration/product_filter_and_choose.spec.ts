@@ -13,7 +13,6 @@ describe('Product filtering and adding to the wishlist', ()=>{
         const departmentName = 'Computers';
         const defaultFilter = 'Featured';
 
-
         homePage.clickOnElem(homePage.shopByCategoryLink);
         homePage.clickOnElem(homePage.computerDepLink);
         searchDetailsPage.isElemContainText(searchDetailsPage.departmentTitle, departmentName);

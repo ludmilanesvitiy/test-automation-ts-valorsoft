@@ -13,6 +13,7 @@ export class HomePo extends BaseComponent {
     langDropdown = '#nav-flyout-icp';
     searchInput = '#twotabsearchtextbox';
     searchIcon = '.nav-search-submit';
+    giftCardLink = '[href*=gift_cards]';
 
     mainNavElem = {
         department: '#nav-shop .nav-line-2',

@@ -23,4 +23,9 @@ export abstract class BaseComponent{
         cy.get(elementSelector)
             .should('to.contain', textToContain);
     };
+
+    isElemContainValue(elementSelector: string, Value: string){
+        cy.get(elementSelector)
+            .should('have.value', Value);
+    };
 }
