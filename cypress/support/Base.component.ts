@@ -25,6 +25,11 @@ export abstract class BaseComponent {
         cy.get(elementSelector).should('to.be.visible');
     }
 
+    isURLcontains(URLPart: string) {
+        cy.url().should('to.contain', URLPart);
+    }
+
+
 
 
 }
