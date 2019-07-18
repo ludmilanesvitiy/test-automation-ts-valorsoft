@@ -24,4 +24,19 @@ export abstract class BaseComponent {
     typeIntoElement(elementSelector: string, textToType: string) {
         cy.get(elementSelector).type(textToType);
     };
+
+    clickOnElemWithText(elementSelector: string, textToContains: string) {
+        cy.get(elementSelector).contains(textToContains).click();
+    };
+
+    isCurrentUrlInclude(textToCompare: string) {
+        cy.url()
+            .should('include', textToCompare);
+    };
+
+    isElemHasAttribute(elementSelector: string, attributeName: string, attributeValue: string) {
+        cy.get(elementSelector)
+            .should('have.attr', attributeName, attributeValue);
+    }
+
 }

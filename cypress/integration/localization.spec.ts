@@ -26,6 +26,7 @@ describe("Localization test suite", () => {
         const esLang = "[href=\"#switch-lang=es_US\"]";
         homePage.hoverOnElem(homePage.langNavTool);
         homePage.isElemVisible(homePage.langDropdown);
+
         homePage.clickOnElem(esLang);
 
         homePage.isElemContainText(homePage.langLabel, labelText);
@@ -45,6 +46,7 @@ describe("Localization test suite", () => {
         const deLang = "[href=\"#switch-lang=de_DE\"]";
         homePage.hoverOnElem(homePage.langNavTool);
         homePage.isElemVisible(homePage.langDropdown);
+
         homePage.clickOnElem(deLang);
 
         homePage.isElemContainText(homePage.langLabel, labelText);
