@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://www.amazon.com/",
+  "projectId": "i1omcs",
+  "video": false,
+  "defaultCommandTimeout": 12000
+}
