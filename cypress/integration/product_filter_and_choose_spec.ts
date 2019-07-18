@@ -2,11 +2,15 @@
 import {HomePo} from "../support/home.po";
 import {SearchDetailsPo} from "../support/searchDetails.po";
 import {DealsPo} from "../support/deals.po";
+import {GiftCardsPo} from "../support/giftCards.po";
+import {GiftCardPo} from "../support/giftCard.po";
 
 describe("Product filtering and adding to the wishlist", ()=>{
     const homePage = new HomePo();
     const searchDetailsPage = new SearchDetailsPo();
     const dealsPage = new DealsPo();
+    const giftCardsPage = new GiftCardsPo();
+    const giftCardPage = new GiftCardPo();
 
     beforeEach(()=>{
         cy.visit(homePage.pageUrl);
@@ -47,4 +51,27 @@ describe("Product filtering and adding to the wishlist", ()=>{
         })
     });
 
+    it.only('Check Gift Cards page', ()=>{
+        const price = '50';
+        const addedToCart = 'Added to Cart';
+
+        homePage.clickOnLinkText(homePage.giftCardsLinkText);
+
+        cy.url().should('include', giftCardsPage.pageUrl);
+        cy.get(giftCardsPage.giftContainers).each(($el)=>{
+            cy.wrap($el).should('to.be.visible');
+        })
+
+        giftCardsPage.clickOnElem(giftCardsPage.giftContainers,0);
+
+        cy.url().should('include', giftCardPage.pageUrl);
+        giftCardPage.clickOnElem(giftCardPage.button50Dollars);
+
+        cy.get(giftCardPage.button50Dollars).should('have.class', giftCardPage.selectedButton);
+        giftCardPage.isElemContainText(giftCardPage.priceSpan, price);
+
+        giftCardPage.clickOnElem(giftCardPage.shareButton);
+        giftCardPage.clickOnElem(giftCardPage.addToCardButton);
+        giftCardPage.isElemContainText(giftCardPage.addedToCardH1, addedToCart);
+    });
 });

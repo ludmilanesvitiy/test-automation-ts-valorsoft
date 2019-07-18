@@ -8,6 +8,7 @@ export class HomePo extends BaseComponent {
     computerDepLink = '[href*="leftnav_computers"]';
     headerNavLinks = '.nav-a';
     dealLinkText = 'Today\'s Deals';
+    giftCardsLinkText = 'Gift Cards';
     langLabel = '.icp-nav-language';
     langNavTool = '#icp-nav-flyout';
     langDropdown = '#nav-flyout-icp';
