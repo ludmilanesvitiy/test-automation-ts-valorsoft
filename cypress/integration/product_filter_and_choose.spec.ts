@@ -2,6 +2,7 @@
 import { HomePo } from '../support/home.po';
 import { SearchDetailsPo } from '../support/searchDetails.po';
 import { DealsPo } from '../support/deals.po';
+import { ProductDetailsPo } from '../support/productDetails.po';
 
 describe('Product filtering and choosing product', () => {
     const homePage = new HomePo();
@@ -42,4 +43,19 @@ describe('Product filtering and choosing product', () => {
 
         dealsPage.isProdHasLabel(dealsPage.productCard, dealsPage.dealOfDayLabel);
     });
+
+    it('Add product to wishlist check', () => {
+        const searchDetailsPage = new SearchDetailsPo();
+        const productDetailsPage = new ProductDetailsPo();
+        const productForSearch = 'headphones';
+        const signInUrl = 'https://www.amazon.com/ap/signin';
+
+        homePage.enterIntoInput(homePage.searchInput, productForSearch);
+        homePage.clickOnElem(homePage.searchIcon);
+        searchDetailsPage.clickOnElem(searchDetailsPage.searchResNames);
+        productDetailsPage.clickOnElem(productDetailsPage.addToWishListBtn);
+
+        productDetailsPage.isCurrentUrlInclude(signInUrl);
+    });
+
 });

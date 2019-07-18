@@ -37,6 +37,9 @@ export abstract class BaseComponent {
     isElemHasAttribute(elementSelector: string, attributeName: string, attributeValue: string) {
         cy.get(elementSelector)
             .should('have.attr', attributeName, attributeValue);
-    }
+    };
 
+    enterIntoInput(elementSelector: string, inputText: string) {
+        cy.get(elementSelector).type(inputText);
+    };
 }
