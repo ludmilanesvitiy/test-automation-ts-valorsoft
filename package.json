@@ -6,7 +6,6 @@
     "e2e-tests": "protractor protractor.conf.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "_comment": "--record --key 346808f5-3dec-47e7-b7a2-bfa8bc582bd4",
     "cy:verify": "cypress verify",
     "cy:version": "cypress version"
   },
