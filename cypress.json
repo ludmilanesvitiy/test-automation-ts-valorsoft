@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://amazon.com/",
+  "supportFile": false,
+  "video": false,
+  "defaultCommandTimeout": 12000
+}
