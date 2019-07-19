@@ -14,6 +14,9 @@ export class HomePo extends BaseComponent {
     langDropdown = '#nav-flyout-icp';
     searchInput = '#twotabsearchtextbox';
     searchIcon = '.nav-search-submit';
+    giftCardBtn = '#nav-xshop [tabindex="49"]';
+    giftCardsLinkText = 'Gift Cards';
+
 
     mainNavElem = {
         department: '#nav-shop .nav-line-2',
@@ -21,6 +24,7 @@ export class HomePo extends BaseComponent {
         account: '#nav-link-accountList .nav-line-2',
         returns: '#nav-orders .nav-line-1',
         orders: '#nav-orders .nav-line-2',
-        cart: '#nav-cart .nav-line-2'
+        cart: '#nav-cart .nav-line-2',
+
     };
 }
