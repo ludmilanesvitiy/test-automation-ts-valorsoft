@@ -2,19 +2,19 @@
 
 import {BaseComponent} from "./base-component";
 
-export class HomePo extends BaseComponent{
+export class HomePo extends BaseComponent {
 
     pageUrl = '';
 
-    shopByCategoryLink = '[aria-label^="Shop by Category"]';
+    shopByCategoryLink = '[href*="leftnav_computers"]';
     computerDepLink = '[href*="leftnav_computers"]';
-    headerNavLinks = '.nav-a';
-    dealLinkText = 'Today\'s Deals';
     langLabel = '.icp-nav-language';
     langNavTool = '#icp-nav-flyout';
     langDropdown = '#nav-flyout-icp';
-    searchInput = '#twotabsearchtextbox';
-    searchIcon = '.nav-search-submit';
+
+    secondaryNavElem = {
+        giftCardsLink: '#nav-xshop [href*="gift_cards"]'
+    };
 
     mainNavElem = {
         department: '#nav-shop .nav-line-2',
