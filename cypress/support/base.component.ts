@@ -23,4 +23,13 @@ export abstract class BaseComponent {
         cy.get(elementSelector).type(textToType);
     };
 
+    isURLcontains(URLPart: string) {
+        cy.url().should('to.contain', URLPart);
+    }
+    isCurrentUrlContain(url: string) {
+        cy.url().should('to.contain', url)
+    };
+
+
+
 }
